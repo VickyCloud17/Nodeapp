@@ -1,10 +1,18 @@
 const request = require('supertest');
-const app = require('../app'); // This should NOT call app.listen()
 
-describe('GET /nonexistentpage', function () {
-  it('should respond with 404 Not Found', function (done) {
+const app = require('../index.js'); // Adjust if your app filename is app.js
+
+
+describe('GET /nonexistentpage', function() {
+
+  it('should respond with 404 Not Found', function(done) {
+
     request(app)
+
       .get('/nonexistentpage')
-      .expect(404, done);
+
+      .expect(404, done); // This is a cleaner way to end test if only checking status
+
   });
+
 });
